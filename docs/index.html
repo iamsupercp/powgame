@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>你好，世界！</h1>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+	<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="text" style="margin-top: 50px;    margin-bottom: 10px;height: 54px;">
+				  随机数：<span id = 'nonce'>00</span>
+			</div>
+			<div class="span12">
+				  <button id = "block5" class="btn btn-warn btn-block btn-large" type="button">区块05 </button>
+				  <button id = "block4" class="btn btn-warn btn-block btn-large" type="button">区块04 </button>
+				  <button id = "block3" class="btn btn-warn btn-block btn-large" type="button">区块03 </button>
+				  <button id = "block2" class="btn btn-warn btn-block btn-large" type="button">区块02 </button>
+				  <button id = "block1" class="btn btn-warn btn-block btn-large" type="button">区块01 </button>
+				  <button id = "block0" class="btn btn-warn btn-block btn-large" type="button">区块00 </button>
+  				  <button id = "block" class="btn btn-warn btn-block btn-large" type="button">创世块 </button>
+
+				  <button id = "pow" class="btn btn-success btn-block btn-large" type="button" style="margin-top: 50px;    margin-bottom: 10px;height: 54px;">按钮</button>
+
+
+			</div>
+		</div>		
+	</div>
+	<script type="text/javascript">
+
+		var begin = false;
+		var height = 0;
+		var nonce = 0;
+		var min = 30;
+		var max = 34;
+
+		$("#pow").click(function(){
+
+			if(!begin){
+				begin = true;
+				$("#block").text("创世块 timestamp:" + new Date().getTime());
+				$("#block").addClass("btn-success");
+			}
+
+
+			nonce = parseInt(Math.random() * 100);
+
+			$("#nonce").text(nonce);
+
+			if(nonce >= min && nonce <= max){
+				
+				console.log(nonce);
+				console.log($("#block" + height));
+
+				$("#block" + height).text( $("#block" + height).text() + "block:" + nonce + " timestamp:" + new Date().getTime() );
+				$("#block" + height).addClass("btn-success");
+
+				height++;
+			}
+
+			if(height ==  2){
+				min = 55;
+				max = 57;
+			}
+
+			if(height ==  3){
+				min = 86;
+				max = 87;
+			}
+
+			if(height ==  4){
+				min = 66;
+				max = 66;
+			}
+	  	});
+
+	</script>
+  </body>
+</html>
+
+
