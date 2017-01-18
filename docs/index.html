@@ -35,6 +35,7 @@
 			<div class="text" style="margin-top: 50px;    margin-bottom: 10px;height: 54px;">
 				  随机数：<span id = 'nonce' style="color: #f33434;font-size: 25px;">00</span>
 				  算力：<span id = 'power' style="color: #f33434;font-size: 25px;">00</span>
+				  耗时：<span id = 'time' style="color: #f33434;font-size: 25px;">00</span>
 			</div>
 			<div class="span12">
 				  <button id = "block5" class="btn btn-warn btn-block btn-large" type="button">区块05 </button>
@@ -60,13 +61,17 @@
 		var min = 30;
 		var max = 34;
 
+		var beginTime = 0;
+		var endTime = 0;
+
 		$("#pow").click(function(){
 
 			power++;
 
 			if(!begin){
 				begin = true;
-				$("#block").text("创世块 timestamp:" + new Date().getTime());
+				beginTime = new Date().getTime();
+				$("#block").text("创世块 timestamp:" + beginTime);
 				$("#block").addClass("btn-success");
 			}
 
@@ -78,13 +83,13 @@
 
 			if(nonce >= min && nonce <= max){
 				
-				console.log(nonce);
-				console.log($("#block" + height));
+				endTime = new Date().getTime();
 
-				$("#block" + height).text( $("#block" + height).text() + "block:" + nonce + " timestamp:" + new Date().getTime() );
+				$("#block" + height).text( $("#block" + height).text() + "block:" + nonce + " timestamp:" +  endTime);
 				$("#block" + height).addClass("btn-success");
 
 				height++;
+
 			}
 
 			if(height ==  2){
@@ -100,6 +105,10 @@
 			if(height ==  4){
 				min = 66;
 				max = 66;
+			}
+
+			if(height == 5){
+				$("#time").text(endTime - beginTime);
 			}
 	  	});
 
