@@ -33,7 +33,8 @@
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="text" style="margin-top: 50px;    margin-bottom: 10px;height: 54px;">
-				  随机数：<span id = 'nonce'>00</span>
+				  随机数：<span id = 'nonce' style="color: #f33434;font-size: 25px;">00</span>
+				  算力：<span id = 'power' style="color: #f33434;font-size: 25px;">00</span>
 			</div>
 			<div class="span12">
 				  <button id = "block5" class="btn btn-warn btn-block btn-large" type="button">区块05 </button>
@@ -55,10 +56,13 @@
 		var begin = false;
 		var height = 0;
 		var nonce = 0;
+		var power = 0;
 		var min = 30;
 		var max = 34;
 
 		$("#pow").click(function(){
+
+			power++;
 
 			if(!begin){
 				begin = true;
@@ -70,6 +74,7 @@
 			nonce = parseInt(Math.random() * 100);
 
 			$("#nonce").text(nonce);
+			$("#power").text(power);
 
 			if(nonce >= min && nonce <= max){
 				
