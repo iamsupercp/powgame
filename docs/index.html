@@ -32,7 +32,7 @@
 
 	<div class="container-fluid">
 		<div class="row-fluid">
-			<div class="text" style="margin-top: 50px;    margin-bottom: 10px;height: 54px;">
+			<div class="text" style="margin-top: 20px; margin-bottom: 10px; height: 54px;">
 				  随机数：<span id = 'nonce' style="color: #f33434;font-size: 25px;">00</span>
 				  算力：<span id = 'power' style="color: #f33434;font-size: 25px;">00</span>
 				  耗时：<span id = 'time' style="color: #f33434;font-size: 25px;">00</span>
@@ -67,7 +67,7 @@
 		$("#pow").click(function(){
 
 			if(height == 6){
-				$("#time").text(endTime - beginTime);
+				$("#time").text( (endTime - beginTime) / 1000.0 + "S" );
 				return;
 			}
 
@@ -76,7 +76,7 @@
 			if(!begin){
 				begin = true;
 				beginTime = new Date().getTime();
-				$("#block").text("创世块 timestamp:" + beginTime);
+				$("#block").text("创世块 nonce:00 timestamp:" + beginTime);
 				$("#block").addClass("btn-success");
 			}
 
@@ -90,7 +90,7 @@
 				
 				endTime = new Date().getTime();
 
-				$("#block" + height).text( $("#block" + height).text() + "block:" + nonce + " timestamp:" +  endTime);
+				$("#block" + height).text( $("#block" + height).text() + "nonce:" + nonce + " timestamp:" +  endTime);
 				$("#block" + height).addClass("btn-success");
 
 				height++;
