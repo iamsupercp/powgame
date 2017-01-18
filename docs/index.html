@@ -66,6 +66,11 @@
 
 		$("#pow").click(function(){
 
+			if(height == 6){
+				$("#time").text(endTime - beginTime);
+				return;
+			}
+
 			power++;
 
 			if(!begin){
@@ -105,10 +110,6 @@
 			if(height ==  4){
 				min = 66;
 				max = 66;
-			}
-
-			if(height == 5){
-				$("#time").text(endTime - beginTime);
 			}
 	  	});
 
